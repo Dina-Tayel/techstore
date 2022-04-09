@@ -1,0 +1,64 @@
+// database schema
+
+        -- The Tables in database , categories ,  products ,  orders , admins 
+         1- categories and products have relationship one to many-->
+         one product has one category and 
+         one category has many products
+         
+         2- products and orders have  relarionship many to many-->
+         one product may be ordered many and 
+         one order may be have more products       
+
+cats            -->     id , name , created_at
+products        -->     id , name , price , img , desc , pieces_no , created_at , cats_id
+orders          -->     id , name , email , address , phone , created_at , status
+order_details   -->     id , cat_id , product_id , quantity(qty)
+admins           -->     id , name , password , email , is_super 
+
+// database  seeding
+
+inserting dummy data in database
+
+---------------------------------------------------------------------------------------------------
+making folder classes
+
+using type hinting 
+Request class --> class for data requested validate it
+                  ya3ny waghaa bt3amel beha m3 el super globals post , get
+                  --> all functions in this class is public beacause
+                  we will access these methods from objects directly in public area
+                  like this: $object->method();
+
+session -->  hadle ay haga kont ba3belha mn el super global session 
+            ya3ny waghaa bt3amel beha m3 el super global session
+            1-  e7hna bndeef 'add' 7aga fel session or        " h3mal func set"
+                bn read 7aga mn el session                    " h3mal func get"
+                bn7zef 7aga mn el session                     " h3mal func remove"
+                bshof if el key da mwgood fel session or not  " h3mal func has"
+                bnhey  elsession kollaha                      " h3mal func destroy:
+                lazem n3ml  function construct 3shan el session_start();
+                **session_start() must be at the first of any page 
+                 **we will solve this mistake in the project
+                hn3mal el project btareqa en el object mn class el session hn3mlo f awel ay script 
+                **and there is a problem if we make by mistake two bljects from class session
+                beacause session start wii be started twice 
+                ** we will make func session status() if it is none 
+                ya3ny en lsa mfesh session so ew make session_start()
+                if(session_status==PHP_SESSION_NONE){
+                        session_start()
+                }
+
+                 validation class
+           
+                       validation rule  لكل  class   هنعمل 
+           required اسمه  class ولا لا هعمل  required يعني مثلا عاةوه اعرف الحاجه الللي عندي 
+
+           classes 
+           --required
+           --str
+           --numeric
+           --max
+                           هتمشسي بنفس الشكلا  classes   كل ال 
+                
+                 check  اسمها validationRule ال inteface جوا    method   هنعمل
+                        
